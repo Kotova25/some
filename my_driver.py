@@ -1,14 +1,9 @@
 from appium import webdriver
 
-instance = None
 
+class Driver:
+    def __init__(self, host, caps):
+        self.driver = webdriver.Remote(host, caps)
 
-def initialize(caps):
-    global instance
-    instance = webdriver.Remote('http://localhost:4723/wd/hub', caps)
-    return instance
-
-
-def close_driver():
-    global instance
-    instance.quit()
+    def close_driver(self):
+        self.driver.quit()
