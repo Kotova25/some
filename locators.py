@@ -17,7 +17,7 @@ class Screen:
     create_my_adv = '//android.widget.CheckedTextView[@text="Разместить объявление"]'
     exit_button = 'button_exit'
     star = 'icon_bookmark'
-    name_of_adv = '//android.widget.TextView[@id="text_summary"]'
+    name_of_adv = 'text_summary'
     adv = '//android.widget.CheckedTextView[@id="design_menu_item_text"]'
     menu = '//android.support.v7.widget.RecyclerView[@id="design_navigation_view"]'
 
@@ -80,8 +80,7 @@ class Screen:
         self.driver.find_element_by_id(Screen.star).click()
 
     def get_attribute_name_of_adv(self):
-        adv_name = self.driver.find_element_by_xpath(Screen.name_of_adv).get_attribute('text')
-        adv_name = str(adv_name)
+        adv_name = self.driver.find_element_by_id(Screen.name_of_adv).get_attribute('text')
         return adv_name
 
     def swipe_menu(self):
